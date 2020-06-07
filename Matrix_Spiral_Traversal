@@ -1,0 +1,59 @@
+arr = [
+  [1, 2, 3, 11],
+  [4, 5, 6, 12],
+  [7, 8, 9, 13]
+]
+print(arr)
+
+m = len(arr)
+n = len(arr[0])
+
+print(m, n)
+
+Top    = 0
+Bottom = m - 1
+Left   = 0
+Right  = n - 1
+
+direction = "Right"
+
+out_list = []
+
+while (Top <= Bottom) and (Left <= Right):
+  if direction == "Right":
+    # Right traversal 
+    i = Left
+    while i <= Right:
+      out_list.append(arr[Top][i])
+      i += 1
+    Top += 1
+    direction = "Down"
+
+  elif direction == "Down":
+    # Down 
+    i = Top 
+    while i <= Bottom:
+      out_list.append(arr[i][Right])
+      i += 1
+    Right -= 1
+    direction = "Left"
+
+  elif direction == "Left":
+    # Left 
+    i = Right
+    while i >= Left:
+      out_list.append(arr[Bottom][i])
+      i -= 1
+    Bottom -= 1
+    direction = "Up"
+
+  elif direction == "Up":
+    # Up 
+    i = Bottom 
+    while (i >= Top):
+      out_list.append(arr[i][Left])
+      i -= 1
+    Left += 1
+    direction = "Right"
+
+print(out_list)
