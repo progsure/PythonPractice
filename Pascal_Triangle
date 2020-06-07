@@ -1,0 +1,15 @@
+numRows = 3
+
+out_matrix = [[] for i in range(numRows)]
+
+for i in range(0, numRows):
+  for j in range(0, i+1):
+    if j < i:
+      if j == 0:
+        out_matrix[i].append(1)
+      else:
+        out_matrix[i].append(out_matrix[i-1][j ] + out_matrix[i-1][j-1])
+    elif i == j:
+      out_matrix[i].append(1)
+      
+print(out_matrix)
