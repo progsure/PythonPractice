@@ -8,7 +8,7 @@ arr = [
 # num of rows
 m = len(arr)
 if m == 0:
-  print([])
+  outlist = []
   
 # num of columns  
 n = len(arr[0])
